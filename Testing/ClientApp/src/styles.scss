@@ -1,0 +1,155 @@
+@import "assets/style/colors.scss";
+@import "assets/style/sizes";
+
+h1{
+    margin: 0;
+    font-size: $sBaseFontSize * 2;
+}
+h2{
+    margin: 0;
+    font-size: $sBaseFontSize * 1.2;
+}
+h3{
+    margin: 0;
+    font-size: $sBaseFontSize * 1.1;
+}
+p{
+    margin: 0;
+    font-size: $sBaseFontSize;
+}
+small{
+    font-size: $sBaseFontSize*0.8;
+}
+
+a{
+    font-size: $sBaseFontSize;
+}
+
+.page-content{
+    width: $sMaxPageContentWidth;
+    margin: 0 auto;
+    padding: $sPadding;
+}
+
+.validate-message{
+    &--error{
+        color: $cError;
+    }
+}
+
+
+
+.load-box{
+    background:$cDark;
+    width: $sStartAnimation;
+    height: $sStartAnimation;
+    position: fixed;
+    z-index: 4;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-animation-name: puls;
+            animation-name: puls;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+  
+    span{
+      position: absolute;
+      color: $cLite;
+      font-size: $sHeadFontSize;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &-background{
+        position: fixed;
+        z-index: 3;
+        min-width: 100%;
+        min-height: 100%;
+        background: white;
+    }
+}
+
+@-webkit-keyframes puls {
+    0% {
+        width: $sStartAnimation;
+        height:$sStartAnimation;
+        background: $cMiddle;
+    }
+    50% {
+        width: $sEndAnimation;
+        height: $sEndAnimation;
+        background: $cDark;
+    }
+    100% {
+        width: $sStartAnimation;
+        height: $sStartAnimation;
+        background: $cMiddle;
+    }
+}
+
+@keyframes puls {
+    0% {
+      width: $sStartAnimation;
+      height:$sStartAnimation;
+      background: $cMiddle;
+    }
+    50% {
+      width: $sEndAnimation;
+      height: $sEndAnimation;
+      background: $cDark;
+    }
+    100% {
+      width: $sStartAnimation;
+      height: $sStartAnimation;
+      background: $cMiddle;
+    }
+}
+
+
+div:not(.not-fade-animate),p,span,input:not([type="file"]) {
+    -webkit-animation: fadein .3s;
+            animation: fadein .3s;
+    }
+
+    @-webkit-keyframes fadein {
+        from { opacity: 0; }
+        to { opacity: 1; } 
+        }   
+    
+    @keyframes fadein {
+        from { opacity: 0; }
+        to { opacity: 1; } 
+      }
+
+
+    
+    input[type=file]{
+        position: absolute;
+        opacity:0;
+        pointer-events: none;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+        max-width: 10px;
+    }
+
+    :active, :hover, :focus {
+        outline: 0;
+        outline-offset: 0;
+    }
+    
+    a.no-text-decoration{
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+    

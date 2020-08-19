@@ -1,0 +1,45 @@
+<div class="page-content">    
+    <ng-container *ngIf="logoffCheck; else logoffButton"> 
+      <div class="logon">
+        <form 
+        [formGroup] = form 
+        (ngSubmit)="submit()">
+
+          <div>
+            <label>Логин:</label>
+            <input type="text"  formControlName="login">
+          </div>
+
+          <div>
+            <label>Пароль:</label>
+            <input type="password"  formControlName="password">
+          </div>
+
+          <input type="submit" [disabled]="form.invalid" value="Вход">
+        </form>
+
+        <div class="errors">
+          <small class="validate-message--error" 
+          *ngIf="form.get('login').invalid && 
+                form.get('login').touched && 
+                form.get('login').errors.emptyText">
+            Логин не может быть пустым
+          </small> 
+
+          <small class="validate-message--error" 
+          *ngIf="form.get('password').invalid && 
+                form.get('password').touched && 
+                form.get('password').errors.emptyText">
+            Пароль не может быть пустым
+          </small>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-template #logoffButton>
+      <div class="logout">
+        <p>Для выхода из режима админа нажмите кнопку Выход - после этого изменения нельзя будет сохранить</p>
+        <button type="button" (click)="logout()">Выход</button>
+      </div>
+    </ng-template>
+</div>

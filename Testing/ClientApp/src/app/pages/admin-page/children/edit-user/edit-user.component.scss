@@ -1,0 +1,21 @@
+@import "../../../../../assets/style/colors.scss";
+@import "../../../../../assets/style/sizes";
+
+form{
+    border: 1px solid $cDark;
+    min-height: 50px;
+    padding: $sPadding;
+    display: flex;
+    align-items:center;
+    justify-content: space-evenly;
+    .edit-section{
+        width: 300px;
+        &-input{
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    label{
+        margin-right: $sMinPadding;
+    }
+}

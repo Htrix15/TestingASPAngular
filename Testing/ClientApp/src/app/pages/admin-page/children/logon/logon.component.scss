@@ -1,0 +1,27 @@
+@import "../../../../../assets/style/colors.scss";
+@import "../../../../../assets/style/sizes";
+
+.logon{
+    border: 1px solid $cDark;
+    padding: $sPadding;
+    form{
+        display: flex;
+        align-items:center;
+        justify-content: space-evenly;
+        label{
+            margin-right: $sMinPadding;
+        }
+    }
+    .errors{
+        min-height: $sPadding*2;
+        text-align: center;
+    }
+}
+.logout{
+    text-align: center;
+    border: 1px solid $cDark;
+    padding: $sPadding;
+    button{
+        margin-top: $sPadding;
+    }
+}

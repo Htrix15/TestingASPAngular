@@ -1,0 +1,55 @@
+@import "../assets/style/colors";
+@import "../assets/style/sizes";
+
+
+header{
+    background-color: $cDark;
+    height: $sHeader;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position:fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    .head-links{
+      margin: 0 $sMarginLeft;
+      &-main{
+        @extend .head-links;
+        color: $cLite;
+        font-size: $sHeadFontSize;
+        text-transform: uppercase;
+      }
+      &-cabinet{
+        color: $cLite;
+        @extend .head-links;
+      }
+    }
+}
+
+.message{
+  position: fixed;
+  right: 0px;
+  top: $sHeader;
+  z-index: 5;
+  padding:$sMinPadding;
+  margin: $sPadding;
+  text-align: center;
+  width: 250px;
+  &__error{
+    @extend .message;
+    background: $cError;
+    color: $cLite;
+  }
+  &__not-error{
+    @extend .message;
+    background: $cLite;
+    color: $cMiddle;
+  }
+}
+
+.header-margin{
+  height: $sHeaderMargin;
+}
+

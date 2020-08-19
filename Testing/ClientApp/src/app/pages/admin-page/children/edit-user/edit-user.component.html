@@ -1,0 +1,106 @@
+<div class="page-content">    
+    <form 
+    [formGroup] = formLogin 
+    (ngSubmit)="submitLogin()"
+    id="submitChangeLogin"
+    >
+        <div class="edit-section">
+
+            <div class="edit-section-input"> 
+                <label>Старый логин</label>
+                <input type="text" formControlName="oldLogin">
+            </div>
+            
+            <div class="validate-message--error"
+            *ngIf="formLogin.get('oldLogin').invalid && formLogin.get('oldLogin').touched"> 
+                <small *ngIf="formLogin.get('oldLogin').errors.emptyText">
+                    Логин не может быть пустым
+                </small> 
+                <small *ngIf="formLogin.get('oldLogin').errors.minlength">
+                    Минимальная длина {{formLogin.get('oldLogin').errors.minlength.requiredLength}} символов 
+                </small> 
+                <small *ngIf="formLogin.get('oldLogin').errors.maxlength">
+                    Максимальная длина {{formLogin.get('oldLogin').errors.maxlength.requiredLength}} символов 
+                </small> 
+            </div> 
+
+        </div>
+      
+    
+  
+        <div class="edit-section">
+
+            <div class="edit-section-input"> 
+                <label>Новый логин</label>
+                <input type="text" formControlName="newLogin">
+            </div>
+
+            <div class="validate-message--error"
+                *ngIf="formLogin.get('newLogin').invalid && formLogin.get('newLogin').touched"> 
+                <small *ngIf="formLogin.get('newLogin').errors.emptyText">
+                    Логин не может быть пустым
+                </small> 
+                <small *ngIf="formLogin.get('newLogin').errors.minlength">
+                    Минимальная длина {{formLogin.get('newLogin').errors.minlength.requiredLength}} символов 
+                </small> 
+                <small *ngIf="formLogin.get('newLogin').errors.maxlength">
+                    Максимальная длина {{formLogin.get('newLogin').errors.maxlength.requiredLength}} символов 
+                </small> 
+            </div> 
+        </div>
+
+        <input type="submit"  [disabled]="formLogin.invalid" value="Сохранить">
+    </form>
+  
+    <form
+    [formGroup] = formPassword 
+    (ngSubmit)="submitPassword()"
+    id="submitChangePassword"
+    >
+        <div class="edit-section">
+
+            <div class="edit-section-input"> 
+                <label>Старый пароль</label>
+                <input type="password" formControlName="oldPassword">
+            </div>
+
+            <div class="validate-message--error"
+            *ngIf="formPassword.get('oldPassword').invalid && formPassword.get('oldPassword').touched"> 
+                <small *ngIf="formPassword.get('oldPassword').errors.emptyText">
+                    Пароль не может быть пустым
+                </small> 
+                <small *ngIf="formPassword.get('oldPassword').errors.minlength">
+                    Минимальная длина {{formPassword.get('oldPassword').errors.minlength.requiredLength}} символов 
+                </small> 
+                <small *ngIf="formPassword.get('oldPassword').errors.maxlength">
+                    Максимальная длина {{formPassword.get('oldPassword').errors.maxlength.requiredLength}} символов 
+                </small> 
+            </div> 
+
+        </div>
+          
+        <div class="edit-section">
+
+            <div class="edit-section-input"> 
+                <label>Новый пароль</label>
+                <input type="password" formControlName="newPassword">
+            </div>
+
+            <div class="validate-message--error"
+                *ngIf="formPassword.get('newPassword').invalid && formPassword.get('newPassword').touched"> 
+                <small *ngIf="formPassword.get('newPassword').errors.emptyText">
+                    Пароль не может быть пустым
+                </small> 
+                <small *ngIf="formPassword.get('newPassword').errors.minlength">
+                    Минимальная длина {{formPassword.get('newPassword').errors.minlength.requiredLength}} символов 
+                </small> 
+                <small *ngIf="formPassword.get('newPassword').errors.maxlength">
+                    Максимальная длина {{formPassword.get('newPassword').errors.maxlength.requiredLength}} символов 
+                </small> 
+            </div> 
+        </div>
+
+        <input type="submit"  [disabled]="formPassword.invalid" value="Сохранить">
+  
+    </form>
+  </div>
